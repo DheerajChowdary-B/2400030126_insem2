@@ -28,4 +28,10 @@ class StudentControllerTest {
                         ]
                         """));
     }
+
+    @Test
+    void returnsNotFoundForUnknownEndpoint() throws Exception {
+        mockMvc.perform(get("/unknown"))
+                .andExpect(status().isNotFound());
+    }
 }
